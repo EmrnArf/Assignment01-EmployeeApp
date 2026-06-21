@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Churn Predictor</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+    
+    <div class="container">
+        <header>
+            <h1>Employee Churn Predictor</h1>
+            <p>Will they stay or will they go? Predict employee retention using our advanced AI model.</p>
+        </header>
+        
+        <main class="glass-panel">
+            <form id="prediction-form">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="satisfaction">Satisfaction Level (0-1)</label>
+                        <input type="number" id="satisfaction" min="0" max="1" step="0.01" value="0.5" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="evaluation">Last Evaluation (0-1)</label>
+                        <input type="number" id="evaluation" min="0" max="1" step="0.01" value="0.5" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="projects">Number of Projects</label>
+                        <input type="number" id="projects" min="1" max="20" value="3" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="hours">Average Monthly Hours</label>
+                        <input type="number" id="hours" min="50" max="400" value="150" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="time">Time Spend Company (Years)</label>
+                        <input type="number" id="time" min="1" max="20" value="3" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="accident">Work Accident</label>
+                        <select id="accident">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="promotion">Promotion Last 5 Years</label>
+                        <select id="promotion">
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="department">Department</label>
+                        <select id="department">
+                            <option value="7">Sales</option>
+                            <option value="2">Accounting</option>
+                            <option value="3">HR</option>
+                            <option value="8">Technical</option>
+                            <option value="9">Support</option>
+                            <option value="4">Management</option>
+                            <option value="0">IT</option>
+                            <option value="6">Product Mgt</option>
+                            <option value="5">Marketing</option>
+                            <option value="1">RandD</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="salary">Salary</label>
+                        <select id="salary">
+                            <option value="1">Low</option>
+                            <option value="2">Medium</option>
+                            <option value="0">High</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="predict-btn">Predict Churn</button>
+            </form>
+            
+            <div id="result-container" class="hidden">
+                <h2 id="result-title">Result</h2>
+                <p id="result-message"></p>
+                <div class="probability-bar">
+                    <div id="probability-fill"></div>
+                </div>
+                <p id="probability-text"></p>
+            </div>
+        </main>
+    </div>
+
+    <script src="weights.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
